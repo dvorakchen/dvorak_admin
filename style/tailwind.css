@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .bg-admin::before {
+    content: "";
+    @apply bg-[url("/images/bg-admin.png")] bg-cover blur absolute inset-0 opacity-30;
+  }
+}
