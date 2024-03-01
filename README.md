@@ -1,4 +1,4 @@
-# Dvorak Admministrator 
+# Dvorak Admministrator
 
 ## Getting Started
 
@@ -54,3 +54,12 @@ cargo leptos watch
 
 and open the browser with http://127.0.0.1:3000 to see
 
+## Build
+
+run:
+
+```
+cargo leptos build --release
+```
+
+and you will find the production files in `/target/release/` and static files in `/target/site`
