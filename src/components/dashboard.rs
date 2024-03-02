@@ -62,7 +62,7 @@ fn TotalReview() -> impl IntoView {
 
             <div class="stat">
                 <div class="stat-figure text-secondary">
-                    <div class="avatar online">
+                    <div class="avatar online" style=("z-index", 0)>
                         <div class="w-16 rounded-full">
                             <img src="/images/avatar.png"/>
                         </div>
@@ -202,7 +202,11 @@ fn LeaveDetail(leave: LeaveRequest, modal_id: String) -> impl IntoView {
                 <h3 class="font-bold text-lg">
                     {format!("{}'s leave request", leave.user.username)}
                 </h3>
-                <div>
+                <div class="flex  flex-col space-y-4 mt-6">
+                    <p>"Type: " {leave.leave_type.to_string()}</p>
+                    <p>"Start date: " {leave.start_date}</p>
+                    <p>"End date: " {leave.end_date}</p>
+                    <p>"Remark: " {leave.remark}</p>
                 </div>
                 <div class="modal-action">
                     <form method="dialog" class="space-x-2">

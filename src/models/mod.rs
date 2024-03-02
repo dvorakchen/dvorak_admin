@@ -1,7 +1,7 @@
 pub mod consts;
 
 use serde::{Deserialize, Serialize};
-use std::fmt;
+use std::fmt::{self, Display};
 
 /// representing the user information
 #[derive(Serialize, Deserialize, Clone)]
@@ -50,6 +50,16 @@ pub enum LeaveType {
     Personal,
     Sick,
     Annual,
+}
+
+impl Display for LeaveType {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            LeaveType::Annual => write!(f, "Annual"),
+            LeaveType::Sick => write!(f, "Sick"),
+            LeaveType::Personal => write!(f, "Personal"),
+        }
+    }
 }
 
 #[derive(Serialize, Deserialize, Clone)]

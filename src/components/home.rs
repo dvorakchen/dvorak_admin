@@ -10,10 +10,50 @@ pub fn Home() -> impl IntoView {
         <main class="flex relative min-h-screen bg-base-200 bg-admin">
             <Header/>
             <MenuList/>
-            <div class="h-screen overflow-y-scroll flex-grow pt-16">
+            <div class="h-screen overflow-y-scroll flex-grow pt-16 flex flex-col">
                 <Outlet/>
+                <div class="flex-grow flex flex-col justify-end">
+                    <Footer/>
+                </div>
             </div>
         </main>
+    }
+}
+
+#[component]
+fn Footer() -> impl IntoView {
+    use chrono::offset::Local;
+    use chrono::Datelike;
+
+    let year = Local::now().year();
+
+    view! {
+        <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+            <nav class="grid grid-flow-col gap-4">
+                <a target="_blank" href="https://dvorak.aiursoft.cn/" class="link link-hover">
+                    "Dvorak Chen"
+                </a>
+                <a target="_blank" href="https://www.rust-lang.org/" class="link link-hover">
+                    "Rust"
+                </a>
+                <a target="_blank" href="https://leptos.dev/" class="link link-hover">
+                    "Leptos"
+                </a>
+            </nav>
+            <nav>
+                <div class="grid grid-flow-col gap-4">
+                    <a href="https://github.com/dvorakchen/" target="_blank">
+                        <Git/>
+                    </a>
+                    <a href="mailto:dvorakchen@outlook.com">
+                        <Email/>
+                    </a>
+                </div>
+            </nav>
+            <aside>
+                <p>"Copyright © " {year} " - All right reserved by Dvorak"</p>
+            </aside>
+        </footer>
     }
 }
 

@@ -5,6 +5,6 @@
 @layer components {
   .bg-admin::before {
     content: "";
-    @apply bg-[url("/images/bg-admin.png")] bg-cover blur absolute inset-0 opacity-30;
+    @apply bg-[url("/images/bg-admin.png")] bg-cover blur absolute inset-0 opacity-30 -z-10;
   }
 }
